@@ -1,8 +1,6 @@
 require 'sinatra'
-require 'date'
-
-today = Date::DAYNAMES[Time.now.wday]
+require "./day.rb"
 
 get '/' do
-  "Hello, world! Today is #{today}!"
+  greeting(Time.now)
 end

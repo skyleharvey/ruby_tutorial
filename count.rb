@@ -1,0 +1,42 @@
+sonnet = "Let me not to the marriage of true minds
+Admit impediments. Love is not love
+Which alters when it alteration finds,
+Or bends with the remover to remove.
+O no, it is an ever-fixed mark
+That looks on tempests and is never shaken
+It is the star to every wand'ring bark,
+Whose worth's unknown, although his height be taken.
+Love's not time's fool, though rosy lips and cheeks
+Within his bending sickle's compass come:
+Love alters not with his brief hours and weeks,
+But bears it out even to the edge of doom.
+  If this be error and upon me proved,
+  I never writ, nor no man ever loved."
+
+uniques = {}
+uniques_two = {}
+words = sonnet.scan(/[\w']+/)
+
+words.each do |word|
+  if uniques[word] == nil
+    uniques[word] = 1
+  else
+    uniques[word] += 1
+  end
+end
+
+words.each do |word|
+  if uniques_two[word]
+    uniques_two[word] += 1
+  else
+    uniques_two[word] = 1
+  end
+end
+
+
+
+if uniques == uniques_two
+  puts "They match!"
+else
+  puts "They don't match!"
+end
