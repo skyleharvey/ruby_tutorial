@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'kyleharv_palindrome'
+require 'open-uri'
+
+lines = URI.open(ARGV[0]).readlines
+palindromes = lines.select(&:palindrome?)
+palindromes.each{ |x| puts "Palindrome detected: #{x}" }
+File.write("palindromes_url.txt", palindromes.join)

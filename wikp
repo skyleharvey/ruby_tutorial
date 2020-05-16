@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require 'nokogiri'
+require 'open-uri'
+
+url = ARGV[0]
+if url == nil
+  puts 'Use: "wikp [url]"'
+else
+  doc = Nokogiri::HTML(URI.open(url).read)
+  doc.css('.reference').each{ |reference| reference.remove }
+  puts doc.css('p').map(&:content).join("\n")
+end

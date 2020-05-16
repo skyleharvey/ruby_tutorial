@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require "~/repos/learn_enough/ruby_tutorial/kyleharv_palindrome/lib/kyleharv_palindrome.rb"
+
+palindromes = File.readlines("phrases.txt").select(&:palindrome?)
+palindromes.each{ |x| puts "Palindrome detected: #{x}" }
+File.write("palindromes_file.txt", palindromes.join)

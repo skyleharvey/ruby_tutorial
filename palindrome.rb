@@ -1,26 +1,13 @@
-class Phrase < String
-  def processor(content)
-    content.downcase
-  end
-
-  def process_content
-    processor(self)
-  end
-
+module Palindrome
+  # Returns true for a palindrome, false otherwise.
   def palindrome?
-    process_content == process_content.reverse
-  end
-end
-
-class TranslatedPhrase < Phrase
-  attr_accessor :translation
-
-  def initialize (content, translation)
-    super(content)
-    @translation = translation
+    processed_content == processed_content.reverse
   end
 
-  def process_content
-    processor(translation)
-  end
+  private
+
+    # Returns content for palindrome testing.
+    def processed_content
+      self.to_s.downcase
+    end
 end
